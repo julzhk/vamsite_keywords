@@ -24,10 +24,16 @@ text {
 
 <script>
 
+var l =  ["apple", "beer", "cat"];
 function combinations(l){
-	r = [];
+	var r = [];
 	_.map(l, function(d,i){
 		_.map(l, function(e,j){
+			console.log(i);
+			console.log(j);
+			console.log(' ');
+			console.log(l[i]);
+			console.log(l[j]);
 			if (l[i] != l[j]){
 				r.push({'name':l[i], 'link':l[j]});
 			}
@@ -35,28 +41,7 @@ function combinations(l){
 	})
 return r;
 }
-
-var color = d3.scale.category20();
-
-var force = d3.layout.force()
-    .charge(-400)
-    .linkDistance(80)
-    .size([width, height]);
-
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-var width = 960,
-    height = 500;
-
-d3.json("demodata.json", function(error, graph) {
-	var keywordpairs = [];
-	_.map(graph, function(d){
-		combos = combinations(d.keywords);
-		keywordpairs = keywordpairs.concat(combos);
-	 	});
-
-});
-
+console.log(combinations(l));
+var c=[2,3,4].concat([6,7,8]);
+console.log(c);
 </script>
